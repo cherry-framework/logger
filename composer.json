@@ -1,5 +1,5 @@
 {
-  "name": "cherry/logger",
+  "name": "cherry-project/logger",
   "description": "Cherry-project logger",
   "type": "library",
   "keywords": ["cherry","logging"],
