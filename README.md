@@ -8,23 +8,27 @@ The Cherry-project logger
 ------------
 
 ## Including
-Install from composer `composer require cherry-project/logger`
+**Install from composer** `composer require cherry-project/logger`
 
-Include Autoloader in your main file (Ex.: index.php)
+**Include Autoloader in your main file** (Ex.: index.php)
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
 ```
-Import class
+**Import class**
 ```php
 use Cherry\Logger;
 ```
-Set logs directory
+**Set logs directory**
 ```php
 define('LOGS_DIR', __DIR__ . '/var/log');
 ```
-Crete class new object
+**Crete class new object** 
+
+Logger class takes two arguments:
+- Log Name, the logs filename(**{LogName}.log**). (Default **'app'**)
+- Logs Directory. (Default **'/var/log'**)
 ```php
-$logger = new Logger(LOGS_DIR);
+$logger = new Logger('app-logs', LOGS_DIR);
 ```
 
 ## Logger methods
