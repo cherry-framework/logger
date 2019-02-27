@@ -1,2 +1,7 @@
 var
+
 vendor
+
+phpunit.xml
+*.phpunit.result.cache
+tests/unit/logs
