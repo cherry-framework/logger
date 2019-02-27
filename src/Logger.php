@@ -123,4 +123,17 @@ class Logger
         fwrite($fs, $logTxt);
         fclose($fs);
     }
+
+    /**
+     * Clear logs file
+     *
+     * @return void
+     */
+    public function clear()
+    {
+        $file = $this->logsDir . '/' . $this->logsName . '.log';
+
+        if (file_exists($file))
+            file_put_contents($file, null);
+    }
 }

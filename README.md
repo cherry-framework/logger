@@ -32,7 +32,8 @@ $logger = new Logger('app-logs', LOGS_DIR);
 ```
 
 ## Logger methods
-The logger has 4 methods (Log types): info, warning, error, debug;
+The logger has 4 methods (Log types): **info**, **warning**, **error**, **debug** 
+and one **clear** method for clearing logs in current instance.
 
 ### Call methods
 ```php
@@ -48,6 +49,11 @@ $logger->info('Info Message 2')
     ->warning('Warning Message 2')
     ->error('Error Message 2')
     ->debug('Debug Message 2');
+```
+
+You can clear all the logs in the current instance using the **clear()* method:
+```php
+$logger->clear();
 ```
 
 **2019 &copy; Temuri Takalandze <takalandzet@gmail.com>**

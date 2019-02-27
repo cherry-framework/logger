@@ -17,3 +17,6 @@ $logger->info('Info Message 2')
     ->warning('Warning Message 2')
     ->error('Error Message 2')
     ->debug('Debug Message 2');
+
+//Clear all logs
+$logger->clear();
