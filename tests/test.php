@@ -18,5 +18,8 @@ $logger->info('Info Message 2')
     ->error('Error Message 2')
     ->debug('Debug Message 2');
 
+//Get logs count
+echo $logger->count();
+
 //Clear all logs
 $logger->clear();

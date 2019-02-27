@@ -56,4 +56,9 @@ You can clear all the logs in the current instance using the **clear()* method:
 $logger->clear();
 ```
 
+If you need logs count in current instance, you might use **count()** method:
+```php
+echo $logger->count();
+```
+
 **2019 &copy; Temuri Takalandze <takalandzet@gmail.com>**

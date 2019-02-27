@@ -136,4 +136,26 @@ class Logger
         if (file_exists($file))
             file_put_contents($file, null);
     }
+
+    /**
+     * Get logs count
+     *
+     * @return int
+     */
+    public function count()
+    {
+        $file = $this->logsDir . '/' . $this->logsName . '.log';
+
+        $count = 0;
+        $handle = fopen($file, "r");
+        while (!feof($handle)) {
+            $line = fgets($handle);
+
+            if ($line != '' && $line != "\n")
+                $count++;
+        }
+        fclose($handle);
+
+        return $count;
+    }
 }
