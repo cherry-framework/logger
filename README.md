@@ -25,15 +25,22 @@ define('LOGS_DIR', __DIR__ . '/var/log');
 **Crete class new object** 
 
 Logger class takes two arguments:
-- Log Name, the logs filename(**{LogName}.log**). (Default **'app'**)
-- Logs Directory. (Default **'/var/log'**)
+- Log Name, the logs filename **{LogName}.log** (Default **'app'**).
+- Logs Directory(Default **'/var/log'**).
 ```php
 $logger = new Logger('app-logs', LOGS_DIR);
 ```
 
 ## Logger methods
-The logger has 4 methods (Log types): **info**, **warning**, **error**, **debug** 
-and one **clear** method for clearing logs in current instance.
+The logger has 4 Log types:
+- **info()**;
+- **warning()**;
+- **error()**;
+- **debug()** 
+
+and additional methods:
+ - **clear()** clear logs in current instance;
+ - **count()** get logs count in current instance;
 
 ### Call methods
 ```php
