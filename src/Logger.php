@@ -35,36 +35,42 @@ class Logger
      * Information Log
      *
      * @param $message
-     * @return void
+     * @return Logger
      */
     public function info($message)
     {
         $this->logType = 'INFO';
         $this->writeLog($message);
+
+        return $this;
     }
 
     /**
      * Warning Log
      *
      * @param $message
-     * @return void
+     * @return Logger
      */
     public function warning($message)
     {
         $this->logType = 'WARNING';
         $this->writeLog($message);
+
+        return $this;
     }
 
     /**
      * Error Log
      *
      * @param $message
-     * @return void
+     * @return Logger
      */
     public function error($message)
     {
         $this->logType = 'ERROR';
         $this->writeLog($message);
+
+        return $this;
     }
 
     /**

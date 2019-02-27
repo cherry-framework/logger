@@ -11,3 +11,7 @@ $logger = new Logger('custom-logs', LOGS_DIR);
 $logger->info('Info Message');
 $logger->warning('Warning Message');
 $logger->error('Error Message');
+
+$logger->info('Info Message 2')
+    ->warning('Warning Message 2')
+    ->error('Error Message 2');

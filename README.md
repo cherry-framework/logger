@@ -41,4 +41,11 @@ $logger->warning('Warning Message');
 $logger->error('Error Message');
 ```
 
+Also you can call more then one method from one object:
+```php
+$logger->info('Info Message 2')
+    ->warning('Warning Message 2')
+    ->error('Error Message 2');
+```
+
 **2019 &copy; Temuri Takalandze <takalandzet@gmail.com>**
