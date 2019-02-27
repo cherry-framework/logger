@@ -74,6 +74,20 @@ class Logger
     }
 
     /**
+     * Debug Log
+     *
+     * @param $message
+     * @return Logger
+     */
+    public function debug($message)
+    {
+        $this->logType = 'DEBUG';
+        $this->writeLog($message);
+
+        return $this;
+    }
+
+    /**
      * Write log in file
      *
      * @param $message

@@ -32,20 +32,22 @@ $logger = new Logger('app-logs', LOGS_DIR);
 ```
 
 ## Logger methods
-The logger has 3 methods (Log types): info, warning, error;
+The logger has 4 methods (Log types): info, warning, error, debug;
 
 ### Call methods
 ```php
 $logger->info('Info Message');
 $logger->warning('Warning Message');
 $logger->error('Error Message');
+$logger->debug('Debug Message');
 ```
 
 Also you can call more then one method from one object:
 ```php
 $logger->info('Info Message 2')
     ->warning('Warning Message 2')
-    ->error('Error Message 2');
+    ->error('Error Message 2')
+    ->debug('Debug Message 2');
 ```
 
 **2019 &copy; Temuri Takalandze <takalandzet@gmail.com>**
