@@ -95,4 +95,29 @@ class LoggerTest extends TestCase
             $logger->clear();
         }
     }
+
+    /**
+     * Test Log creating date and time
+     *
+     * @return void
+     */
+    public function testLogDateTime()
+    {
+        /** @var Logger $logger */
+        $logger = $this->logger;
+
+        $logger->info('created');
+
+        $dateTimeNow = date("Y-m-d H:i");
+
+        $log = @file_get_contents($this->logsDir . '/' . $this->logsName . '.log');
+        $start = strpos($log, '[') + 1;
+        $end = strpos($log, ']');
+
+        $logDateTime = substr($log, $start, $end - $start - 3);
+
+        $this->assertEquals($dateTimeNow, $logDateTime);
+
+        $logger->clear();
+    }
 }
