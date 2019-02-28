@@ -116,7 +116,7 @@ class Logger
         $dateTime = date("Y-m-d H:i:s");
 
         //Generate message text
-        $logTxt = "{$dateTime}  {$logType}: {$message} In {$traceFile} On line {$traceLine}.\n";
+        $logTxt = "[{$dateTime}]  {$logType}: {$message} In {$traceFile} On line {$traceLine}.\n";
 
         //Write message in $logsFile
         $fs = fopen($logsFile, 'a') or die("Unable to open log file!");

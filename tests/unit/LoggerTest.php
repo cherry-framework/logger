@@ -63,4 +63,36 @@ class LoggerTest extends TestCase
 
         $logger->clear();
     }
+
+    /**
+     * Test created logs type
+     *
+     * @return void
+     */
+    public function testLoggerType()
+    {
+        /** @var Logger $logger */
+        $logger = $this->logger;
+
+        $logTypes = array(
+            'info' => 'INFO',
+            'warning' => 'WARNING',
+            'error' => 'ERROR',
+            'debug' => 'DEBUG'
+        );
+
+        foreach ($logTypes as $k => $v) {
+            $logger->{$k}('created');
+
+            $log = @file_get_contents($this->logsDir . '/' . $this->logsName . '.log');
+
+            $start = strpos($log, ']') + 3;
+            $end = strpos($log, ':', $start);
+            $logType = substr($log, $start, $end - $start);
+
+            $this->assertEquals($v, $logType);
+
+            $logger->clear();
+        }
+    }
 }
