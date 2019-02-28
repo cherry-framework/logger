@@ -141,4 +141,36 @@ class LoggerTest extends TestCase
 
         $logger->clear();
     }
+
+    /**
+     * Test logs count
+     *
+     * @return void
+     */
+    public function testCountMethod()
+    {
+        /** @var Logger $logger */
+        $logger = $this->logger;
+        $logger->info('created');
+        $logger->debug('created');
+        $logger->warning('created');
+
+        $this->assertEquals(3, $logger->count());
+
+        $logger->error('created');
+        $logger->info('created');
+
+        $this->assertEquals(5, $logger->count());
+
+        $logger->error('created');
+        $logger->info('created');
+        $logger->debug('created');
+        $logger->info('created');
+        $logger->warning('created');
+        $logger->info('created');
+
+        $this->assertEquals(11, $logger->count());
+
+        $logger->clear();
+    }
 }
