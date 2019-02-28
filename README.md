@@ -58,14 +58,14 @@ $logger->info('Info Message 2')
     ->debug('Debug Message 2');
 ```
 
-You can clear all the logs in the current instance using the **clear()* method:
-```php
-$logger->clear();
-```
-
 If you need logs count in current instance, you might use **count()** method:
 ```php
 echo $logger->count();
+```
+
+You can clear all the logs in the current instance using the **clear()** method:
+```php
+$logger->clear();
 ```
 
 **2019 &copy; Temuri Takalandze <takalandzet@gmail.com>**
