@@ -105,7 +105,7 @@ class Logger
 
         //Make logs directory if don't exists
         if (!is_dir($logsDir))
-            mkdir($logsDir, 0777, true);
+            mkdir($logsDir, 0755, true);
 
         //Get Backtrace
         $trace = debug_backtrace()[1];

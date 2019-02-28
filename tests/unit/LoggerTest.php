@@ -40,4 +40,27 @@ class LoggerTest extends TestCase
 
         $logger->clear();
     }
+
+    /**
+     * Test the logs directory and log file permissions;
+     *
+     * @return void
+     */
+    public function testLogDirectoryAndFilePermissions()
+    {
+        /** @var Logger $logger */
+        $logger = $this->logger;
+        $logger->info('created');
+
+        $logsDirectory = $this->logsDir;
+        $logFile = $logsDirectory . '/' . $this->logsName . '.log';
+
+        $dirPerms = (int)substr(decoct(fileperms($logsDirectory)), -3);
+        $filePerms = (int)substr(decoct(fileperms($logFile)), -3);
+
+        $this->assertEquals(755, $dirPerms);
+        $this->assertEquals(644, $filePerms);
+
+        $logger->clear();
+    }
 }
