@@ -35,36 +35,56 @@ class Logger
      * Information Log
      *
      * @param $message
-     * @return void
+     * @return Logger
      */
     public function info($message)
     {
         $this->logType = 'INFO';
         $this->writeLog($message);
+
+        return $this;
     }
 
     /**
      * Warning Log
      *
      * @param $message
-     * @return void
+     * @return Logger
      */
     public function warning($message)
     {
         $this->logType = 'WARNING';
         $this->writeLog($message);
+
+        return $this;
     }
 
     /**
      * Error Log
      *
      * @param $message
-     * @return void
+     * @return Logger
      */
     public function error($message)
     {
         $this->logType = 'ERROR';
         $this->writeLog($message);
+
+        return $this;
+    }
+
+    /**
+     * Debug Log
+     *
+     * @param $message
+     * @return Logger
+     */
+    public function debug($message)
+    {
+        $this->logType = 'DEBUG';
+        $this->writeLog($message);
+
+        return $this;
     }
 
     /**
@@ -85,7 +105,7 @@ class Logger
 
         //Make logs directory if don't exists
         if (!is_dir($logsDir))
-            mkdir($logsDir, 0777, true);
+            mkdir($logsDir, 0755, true);
 
         //Get Backtrace
         $trace = debug_backtrace()[1];
@@ -96,11 +116,46 @@ class Logger
         $dateTime = date("Y-m-d H:i:s");
 
         //Generate message text
-        $logTxt = "{$dateTime}  {$logType}: {$message} In {$traceFile} On line {$traceLine}.\n";
+        $logTxt = "[{$dateTime}]  {$logType}: {$message} In {$traceFile} On line {$traceLine}.\n";
 
         //Write message in $logsFile
         $fs = fopen($logsFile, 'a') or die("Unable to open log file!");
         fwrite($fs, $logTxt);
         fclose($fs);
+    }
+
+    /**
+     * Clear logs file
+     *
+     * @return void
+     */
+    public function clear()
+    {
+        $file = $this->logsDir . '/' . $this->logsName . '.log';
+
+        if (file_exists($file))
+            file_put_contents($file, null);
+    }
+
+    /**
+     * Get logs count
+     *
+     * @return int
+     */
+    public function count()
+    {
+        $file = $this->logsDir . '/' . $this->logsName . '.log';
+
+        $count = 0;
+        $handle = fopen($file, "r");
+        while (!feof($handle)) {
+            $line = fgets($handle);
+
+            if ($line != '' && $line != "\n")
+                $count++;
+        }
+        fclose($handle);
+
+        return $count;
     }
 }
