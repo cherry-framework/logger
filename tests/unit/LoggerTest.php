@@ -105,7 +105,6 @@ class LoggerTest extends TestCase
     {
         /** @var Logger $logger */
         $logger = $this->logger;
-
         $logger->info('created');
 
         $dateTimeNow = date("Y-m-d H:i");
@@ -117,6 +116,28 @@ class LoggerTest extends TestCase
         $logDateTime = substr($log, $start, $end - $start - 3);
 
         $this->assertEquals($dateTimeNow, $logDateTime);
+
+        $logger->clear();
+    }
+
+    /**
+     * Test logger call backtrace line
+     *
+     * @return void
+     */
+    public function testBacktraceLine()
+    {
+        /** @var Logger $logger */
+        $logger = $this->logger;
+        $logger->info('created');
+
+        $log = @file_get_contents($this->logsDir . '/' . $this->logsName . '.log');
+        $start = strpos($log, 'line') + 5;
+        $end = strpos($log, '.', $start);
+
+        $line = (int)substr($log, $start, $end - $start);
+
+        $this->assertEquals(132, $line);
 
         $logger->clear();
     }
