@@ -173,4 +173,33 @@ class LoggerTest extends TestCase
 
         $logger->clear();
     }
+
+    /**
+     * Test log clearing feature
+     *
+     * @return void
+     */
+    public function testClearMethod()
+    {
+        /** @var Logger $logger */
+        $logger = $this->logger;
+        $logger->info('created');
+        $logger->debug('created');
+        $logger->warning('created');
+        $logger->error('created');
+        $logger->info('created');
+        $logger->debug('created');
+        $logger->info('created');
+        $logger->info('created');
+        $logger->warning('created');
+        $logger->error('created');
+        $logger->info('created');
+        $logger->debug('created');
+        $logger->warning('created');
+        $logger->info('created');
+
+        $logger->clear();
+
+        $this->assertEquals(0, $logger->count());
+    }
 }
