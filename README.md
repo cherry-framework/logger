@@ -5,6 +5,8 @@ The Cherry-project logger
 
 [![GitHub release](https://img.shields.io/github/release/abgeo07/cherry-logger.svg)](https://github.com/ABGEO07/cherry-logger/releases)
 
+[![Packagist Version](https://img.shields.io/packagist/v/cherry-project/logger.svg "Packagist Version")](https://packagist.org/packages/cherry-project/logger "Packagist Version")
+
 ------------
 
 ## Including
