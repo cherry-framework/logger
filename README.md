@@ -70,4 +70,4 @@ You can clear all the logs in the current instance using the **clear()** method:
 $logger->clear();
 ```
 
-**2019 &copy; Temuri Takalandze <takalandzet@gmail.com>**
+**2019 © Cherry-project**
